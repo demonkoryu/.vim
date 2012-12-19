@@ -1,7 +1,7 @@
 " vim: set sw=4 ts=8 sts=4 noet fen fdm=marker fdl=1 fdls=0 tw=120: 
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@googlemail.com> 
-" Last Change: 06 Dec 2012 14:20:47 Tobias Hoffmann <th.geist@googlemail.com>
+" Last Change: 19 Dec 2012 06:34:47 PM Tobias Hoffmann <th.geist@googlemail.com>
 "
 " Copyright (C) 2008 Tobias Hoffmann <th.geist@googlemail.com>
 " All rights reserved.
@@ -189,6 +189,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Bundles {{{
+
+" from Github {{{
 Bundle 'Shougo/neocomplcache'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'msanders/snipmate.vim'
@@ -196,19 +198,25 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'Lokaltog/powerline'
+" }}}
+" From vim-scripts {{{
 Bundle 'vim-scripts/bash-support.vim'
 Bundle 'vim-scripts/project.tar.gz'
 Bundle 'vim-scripts/molokai'
 Bundle 'vim-scripts/robokai'
 Bundle 'vim-scripts/DevEiate-theme'
-
+" }}}
+" ??? {{{
 Bundle 'Align'
 Bundle 'DrawIt'
+" }}}
+
 " [FIXME] ln -s ~/.vim/bundle/bash-support.vim/bash-support ~/.vim/ "
 " [C extension] Bundle 'git://git.wincent.com/command-t.git'
 " }}}
 
-filetype plugin indent on
+filetype plugin indent on	    " Required for vundle
 " }}}
 
 " Basic power config {{{
@@ -1233,4 +1241,6 @@ else
     colorscheme 256_wombat
 endif
 
+" Hell, yeah!
+source ~/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
 
