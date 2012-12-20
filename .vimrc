@@ -1,7 +1,7 @@
 " vim: set sw=4 ts=8 sts=4 noet fen fdm=marker fdl=1 fdls=0 tw=120: 
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@googlemail.com> 
-" Last Change: 19 Dec 2012 06:34:47 PM Tobias Hoffmann <th.geist@googlemail.com>
+" Last Change: 20 Dec 2012 10:42:26 AM Tobias Hoffmann <th.geist@googlemail.com>
 "
 " Copyright (C) 2008 Tobias Hoffmann <th.geist@googlemail.com>
 " All rights reserved.
@@ -539,6 +539,14 @@ nn <silent><Leader>cu :se cuc  <CR>:se cul  <CR>
 
 " Command line {{{
 
+" Homedir-relative editing {{{
+" Make %% an alias for home
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+" }}}
 cno $$ e ../**/
 "  __     ___             _       _   _  ___ _____
 "  \ \   / (_)_ __ ___   (_)___  | | | |/ _ \_   _|
