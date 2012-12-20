@@ -1,7 +1,7 @@
 " vim: set sw=4 ts=8 sts=4 noet fen fdm=marker fdl=1 fdls=0 tw=120: 
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@googlemail.com> 
-" Last Change: 20 Dec 2012 10:42:26 AM Tobias Hoffmann <th.geist@googlemail.com>
+" Last Change: 20 Dec 2012 02:07:18 PM Tobias Hoffmann <th.geist@googlemail.com>
 "
 " Copyright (C) 2008 Tobias Hoffmann <th.geist@googlemail.com>
 " All rights reserved.
@@ -521,6 +521,9 @@ set mat=1		    " ...for 5 msecs
 set lsp=0		    " Pixels between lines (used to adjust fonts)
 
 " }}}
+" GUI font {{{
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+" }}}
 
 " Additional runtime modules {{{
 " runtime ftplugin/man.vim
@@ -559,21 +562,10 @@ cno $$ e ../**/
 "          ___) || | | |_| |  _| |  _| |_|_|
 "         |____/ |_|  \___/|_|   |_|   (_|_)    
 
-cno $r sp $MYVIMRC<Cr>
-cno $g sp $MYGVIMRC<Cr>
+cno $r e $MYVIMRC<Cr>
+cno $g e $MYGVIMRC<Cr>
 cno $v e $VIM/
 cno $s e $VIMRUNTIME/
-
-cno $h e ~/
-cno $d e ~/Desktop/
-
-cno $p sp ~/.plan<Cr>
-cno $t sp ~/.todo<Cr>
-
-" This should probably go into a :Project script
-cno $w cd! /var/www/<Cr>
-cno $f cd! /var/www/fog/<Cr>
-cno $a cd! /var/www/fog/application/<Cr>
 
 cno $y syntax sync fromstart<Cr>
 
@@ -1243,8 +1235,7 @@ if has("gui_running")
     set nonu
     "colorschem panda
     "colorscheme rubyblue
-    "colorscheme molokai
-    colorscheme robokai
+    colorscheme molokai
 else
     colorscheme 256_wombat
 endif
