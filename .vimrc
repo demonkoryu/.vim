@@ -1,7 +1,7 @@
-" vim: set sw=4 ts=8 sts=4 noet fen fdm=marker fdl=1 fdls=0 tw=120:
+" Last Change: 14 May 2013 18:38:50 Tobias Hoffmann <th.geist@gmail.com>
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@gmail.com>
-" Last Change: 14 May 2013 18:08:21 Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 14 May 2013 18:38:50 Tobias Hoffmann <th.geist@gmail.com>
 "
 " Copyright (C) 2013 Tobias Hoffmann <th.geist@gmail.com>
 " All rights reserved.
@@ -199,7 +199,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-matchit'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 Bundle 'vim-scripts/bash-support.vim'
 Bundle 'vim-scripts/project.tar.gz'
 Bundle 'vim-scripts/molokai'
@@ -217,6 +217,11 @@ Bundle 'CountJump'
 " }}}
 
 filetype plugin indent on
+" }}}
+
+" Powerline {{{
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+source ~/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
 " }}}
 
 " Basic power config {{{
@@ -260,6 +265,10 @@ set bg=dark			    " Prefer a dark background color scheme
 if !has("gui_running")
     se t_Co=256		    " For 256 color xterms
     set guioptions-=T
+
+" GUI font {{{
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+" }}}
 en
 
 set tenc=utf-8			    " XXX Terminal encoding
@@ -498,7 +507,7 @@ set fdo="block,hor,mark,percent,search,tag,undo"
 " Text wrapping/display/scrolling {{{
 set wrap		    " Display long lines wrapped TODO: Make wrap toggle mapping
 set sidescroll=5            " Minimum number of columns to scroll horizontally when wrap is off
-set list listchars=precedes:«,extends:»,trail:·    " Special characters highlighting
+set list listchars=tab:»·,precedes:«,extends:»,trail:·    " Special characters highlighting
 			    " Strings to use in list mode
 set linebreak		    " Wrap long lines at a character in 'breakat' rather than the last character
 			    " that fits on screen.
@@ -1246,15 +1255,12 @@ let g:loaded_pyphpdebugger = 1
 
 
 if has("gui_running")
-    set nonu
     "colorschem panda
     "colorscheme rubyblue
     "colorscheme molokai
-    colorscheme robokai
+    colorscheme wombat2
 else
     colorscheme 256_wombat
 endif
 
-" Hell, yeah!
-source ~/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
 
