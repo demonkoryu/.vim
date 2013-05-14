@@ -1,17 +1,20 @@
-" vim: set sw=4 ts=8 sts=4 noet fen fdm=marker fdl=1 fdls=0 tw=120: 
+" vim: set sw=4 ts=8 sts=4 noet fen fdm=marker fdl=1 fdls=0 tw=120:
 "
-" Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@googlemail.com> 
-" Last Change: 20 Dec 2012 02:07:18 PM Tobias Hoffmann <th.geist@googlemail.com>
+" Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 14 May 2013 17:47:12 Tobias Hoffmann <th.geist@gmail.com>
 "
-" Copyright (C) 2008 Tobias Hoffmann <th.geist@googlemail.com>
+" Copyright (C) 2013 Tobias Hoffmann <th.geist@gmail.com>
 " All rights reserved.
-" 
+"
 " Redistribution and use, with or without modification, are permitted.
-" 
+"
 " This software is provided by the author 'as is' and without any warranty. In
 " no event shall the author be liable for any damages however caused and on any
 " theory of liability arising in any way out of the use of this software, even
 " if advised of the possibility of such damage.
+"
+" Todo:
+" explore new motions from CountJump: http://www.vim.org/scripts/script.php?script_id=3130
 "
 " The Daily WTF:
 " never set expandtab for a .vimrc -.-
@@ -26,10 +29,10 @@
 " :e **/
 " and forget TextMate!
 "
-" Tip Of The Fiscal Year: 
+" Tip Of The Fiscal Year:
 " gv Starts Visual mode with the same area as the previous.
 "
-" Moment Of The Day: 
+" Moment Of The Day:
 " iabbrev <buffer>def defend<Left><Left><Left><Cr><Esc>kA
 " Try it! =D
 "
@@ -52,9 +55,9 @@
 " How To Yank Into The Command Line:
 " CTRL-R {0-9a-z"%#*+:.-=}					*i_CTRL-R*
 "      Insert the contents of a register.  Between typing CTRL-R and the second character, '"' will be
-"      displayed to indicate that you are expected to enter the name of a register.  The text is inserted 
+"      displayed to indicate that you are expected to enter the name of a register.  The text is inserted
 "      as if you typed it, but mappings and abbreviations are not used.  If you have options like
-"      'textwidth', 'formatoptions', or 'autoindent' set, this will influence what will be inserted.  
+"      'textwidth', 'formatoptions', or 'autoindent' set, this will influence what will be inserted.
 "      This is different from what happens with the "p" command and pasting with the mouse.
 "      Special registers:
 "      	'"'	the unnamed register, containing the text of the last delete or yank
@@ -73,27 +76,27 @@
 "      		Use CTRL-R CTRL-R to insert text literally. When the result is a |List| the items are used
 "      		as lines.  They can have line breaks inside too.
 "      See |registers| about registers.
-" 
+"
 " CTRL-R CTRL-R {0-9a-z"%#*+/:.-=}			*i_CTRL-R_CTRL-R*
 " 		Insert the contents of a register.  Works like using a single "CTRL-R, but the text is
-" 		inserted literally, not as if typed. This differs when the register contains characters 
+" 		inserted literally, not as if typed. This differs when the register contains characters
 " 		like <BS>.
 " 		Example, where register a contains "ab^Hc": >
 " 	CTRL-R a		results in "ac".
 " 	CTRL-R CTRL-R a		results in "ab^Hc".
 " <		Options 'textwidth', 'formatoptions', etc. still apply.  If you also want to avoid these,
 "		use "<C-R><C-O>r", see below. The '.' register (last inserted text) is still inserted as
-" 		typed.  
-" 
+" 		typed.
+"
 " CTRL-R CTRL-O {0-9a-z"%#*+/:.-=}			*i_CTRL-R_CTRL-O*
-" 		Insert the contents of a register literally and don't auto-indent.  Does the same as 
-" 		pasting with the mouse |<MiddleMouse>|. Does not replace characters! The '.' register 
-" 		(last inserted text) is still inserted as typed.  
-" 
+" 		Insert the contents of a register literally and don't auto-indent.  Does the same as
+" 		pasting with the mouse |<MiddleMouse>|. Does not replace characters! The '.' register
+" 		(last inserted text) is still inserted as typed.
+"
 " CTRL-R CTRL-P {0-9a-z"%#*+/:.-=}			*i_CTRL-R_CTRL-P*
 " 		Insert the contents of a register literally and fix the indent, like |[<MiddleMouse>|.
 " 		Does not replace characters!  The '.' register (last inserted text) is still inserted as
-" 		typed.  
+" 		typed.
 "
 " ...and how to enlarge window size automatically when switching if the current window isn't larger than
 " minwinheight...
@@ -169,7 +172,7 @@
 " * surround                        (Visually) surround and remove surroundings on text objects.
 " * tagexplorer                     A ctags frontend.
 " * themes/colorschemes UPDATED     Lots of good colorschemes (including inkpot, vibrantink, ps_color, moria)
-" 
+"
 " }}}
 
 " Vim config {{{
@@ -181,16 +184,14 @@
 " Vundle {{{
 set nocompatible
 filetype off
-  
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-    
+
 " let Vundle manage Vundle (required)
 Bundle 'gmarik/vundle'
 
 " Bundles {{{
-
-" from Github {{{
 Bundle 'Shougo/neocomplcache'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'msanders/snipmate.vim'
@@ -198,25 +199,23 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-matchit'
-Bundle 'Lokaltog/powerline'
-" }}}
-" From vim-scripts {{{
 Bundle 'vim-scripts/bash-support.vim'
 Bundle 'vim-scripts/project.tar.gz'
 Bundle 'vim-scripts/molokai'
 Bundle 'vim-scripts/robokai'
 Bundle 'vim-scripts/DevEiate-theme'
-" }}}
-" ??? {{{
+
 Bundle 'Align'
 Bundle 'DrawIt'
-" }}}
+Bundle 'ShowTrailingWhitespace'
+Bundle 'DeleteTrailingWhitespace'
+Bundle 'CountJump'
 
 " [FIXME] ln -s ~/.vim/bundle/bash-support.vim/bash-support ~/.vim/ "
 " [C extension] Bundle 'git://git.wincent.com/command-t.git'
 " }}}
 
-filetype plugin indent on	    " Required for vundle
+filetype plugin indent on
 " }}}
 
 " Basic power config {{{
@@ -225,8 +224,8 @@ set ml                        	    " Enable setting Vim options from within file
 set mls=10			    " Scan this many lines from start and end of file to find a modeline
 
 " vi compatibility options {{{
-"set cpo+=I			    " I : When moving the cursor up or down just after inserting   
-                              	    "     indent for 'autoindent', do not delete the indent.         
+"set cpo+=I			    " I : When moving the cursor up or down just after inserting
+                              	    "     indent for 'autoindent', do not delete the indent.
 "set cpo+=n                           " n : Have 'showbreak' appear between line numbers
 set cpo+=B			    " B : Use backslash like  in mappings. XXX
 "set cpo-=<			    " < : Use special key codes in <> form in mappings and abbrs
@@ -263,7 +262,7 @@ if !has("gui_running")
 en
 
 set tenc=utf-8			    " XXX Terminal encoding
-set encoding=utf-8 
+set encoding=utf-8
 set fileencodings=utf-8,latin1
 
 " }}}
@@ -305,14 +304,14 @@ set magic			    " Default regex behavior, keep this at default to avoid portabil
 set hh=8				    " Minimum initial height for help window when opening help with :help
 set hlg=en,de			    " Prefer english help text, but german is ok, too
 
-" }}} 
+" }}}
 
 " File format/encoding/line endings {{{
 set ffs=unix,mac,dos			" Preferred line endings
 set fencs=utf-8,default,latin1,ucs-bom	" File encoding
 set enc=utf-8                            " Recommended for GTK+ 2, it's sensible for other TKs too!
 set nobomb                               " Don't write BOM when writing Unicode files
-"set viminfo+=1%                                " XXX 
+"set viminfo+=1%                                " XXX
 
 " }}}
 
@@ -343,9 +342,9 @@ set hi=50000			" Keep this many lines of command history
 
 " }}}
 
-" Text formatting options {{{ 
+" Text formatting options {{{
 
-" }}} 
+" }}}
 
 " XXX Indenting {{{
 set ai				" Auto indenting
@@ -413,8 +412,8 @@ set mh       							" Hide the mouse when typing text
 " }}}
 
 " Cursor settings {{{
-set nocuc							" Don't highlight cursor column 
-set nocul		    	    				" Dont' highlight cursor line 
+set nocuc							" Don't highlight cursor column
+set nocul		    	    				" Dont' highlight cursor line
 								" These options can be toggled with the <Leader>cc,
 								" cl, nc, cu bindings
 " }}}
@@ -444,24 +443,24 @@ set wildmode=longest,full    " Complete longest common string, then each full ma
 " set wildmode=list:full      " List all matches and complete each full match >
 " set wildmode=list,full      " List all matches without completing, then each full match >
 " set wildmode=longest,list   " Complete longest common string, then list alternatives.
-set wildcharm=                 
-				"'wildcharm' works exactly like 'wildchar', except that it is             
-	                      "recognized when used inside a macro.  You can find "spare" command-line 
-	                      "keys suitable for this option by looking at |ex-edit-index|.  Normally  
-	                      "you'll never actually type 'wildcharm', just use it in mappings that    
-	                      "automatically invoke completion mode, e.g.: >                           
-	                      "	:set wcm=<C-Z>                                                   
-	                      "	:cnoremap ss so $vim/sessions/*.vim<C-Z>                         
-set wildignore=""                 
-			      "A list of file patterns.  A file that matches with one of these       
-	                      "patterns is ignored when completing file or directory names.          
-	                      "The pattern is used like with |:autocmd|, see |autocmd-patterns|.     
-	                      "Also see 'suffixes'.                                                  
-	                      "Example: >                                                            
-	                      "	:set wildignore=*.o,*.obj                                      
-	                      "The use of |:set+=| and |:set-=| is preferred when adding or removing 
- 	                      "a pattern from the list.  This avoids problems when a future version  
-	                      "uses another default.                                                 
+set wildcharm=
+				"'wildcharm' works exactly like 'wildchar', except that it is
+	                      "recognized when used inside a macro.  You can find "spare" command-line
+	                      "keys suitable for this option by looking at |ex-edit-index|.  Normally
+	                      "you'll never actually type 'wildcharm', just use it in mappings that
+	                      "automatically invoke completion mode, e.g.: >
+	                      "	:set wcm=<C-Z>
+	                      "	:cnoremap ss so $vim/sessions/*.vim<C-Z>
+set wildignore=""
+			      "A list of file patterns.  A file that matches with one of these
+	                      "patterns is ignored when completing file or directory names.
+	                      "The pattern is used like with |:autocmd|, see |autocmd-patterns|.
+	                      "Also see 'suffixes'.
+	                      "Example: >
+	                      "	:set wildignore=*.o,*.obj
+	                      "The use of |:set+=| and |:set-=| is preferred when adding or removing
+ 	                      "a pattern from the list.  This avoids problems when a future version
+	                      "uses another default.
 set wildoptions="tagfile"
 	                      " A list of words that change how command line completion is done.
 	                      " Currently only one word is allowed:
@@ -470,9 +469,9 @@ set wildoptions="tagfile"
 	                      " 		is displayed per line.  Often used tag kinds are:
 	                      " 			d	#define
 	                      " 			f	function
-	
 
-	
+
+
 
 " }}}
 
@@ -498,9 +497,9 @@ set fdo="block,hor,mark,percent,search,tag,undo"
 " Text wrapping/display/scrolling {{{
 set wrap		    " Display long lines wrapped TODO: Make wrap toggle mapping
 set sidescroll=5            " Minimum number of columns to scroll horizontally when wrap is off
-set listchars+=precedes:<,extends:>,trail:-  
+set listchars+=precedes:<,extends:>,trail:-
 			    " Strings to use in list mode
-set linebreak		    " Wrap long lines at a character in 'breakat' rather than the last character 
+set linebreak		    " Wrap long lines at a character in 'breakat' rather than the last character
 			    " that fits on screen.
 " set breakat="     .,;:!?->"
 set showbreak=">>> "        " XXX Show this string at the beginning of a wrapped line (Also see: cpoptions+=n)
@@ -521,9 +520,6 @@ set mat=1		    " ...for 5 msecs
 set lsp=0		    " Pixels between lines (used to adjust fonts)
 
 " }}}
-" GUI font {{{
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-" }}}
 
 " Additional runtime modules {{{
 " runtime ftplugin/man.vim
@@ -542,14 +538,6 @@ nn <silent><Leader>cu :se cuc  <CR>:se cul  <CR>
 
 " Command line {{{
 
-" Homedir-relative editing {{{
-" Make %% an alias for home
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-" }}}
 cno $$ e ../**/
 "  __     ___             _       _   _  ___ _____
 "  \ \   / (_)_ __ ___   (_)___  | | | |/ _ \_   _|
@@ -560,12 +548,23 @@ cno $$ e ../**/
 "         / ___|_   _| | | |  ___|  ___| | |
 "         \___ \ | | | | | | |_  | |_  | | |
 "          ___) || | | |_| |  _| |  _| |_|_|
-"         |____/ |_|  \___/|_|   |_|   (_|_)    
+"         |____/ |_|  \___/|_|   |_|   (_|_)
 
-cno $r e $MYVIMRC<Cr>
-cno $g e $MYGVIMRC<Cr>
+cno $r sp $MYVIMRC<Cr>
+cno $g sp $MYGVIMRC<Cr>
 cno $v e $VIM/
 cno $s e $VIMRUNTIME/
+
+cno $h e ~/
+cno $d e ~/Desktop/
+
+cno $p sp ~/.plan<Cr>
+cno $t sp ~/.todo<Cr>
+
+" This should probably go into a :Project script
+cno $w cd! /var/www/<Cr>
+cno $f cd! /var/www/fog/<Cr>
+cno $a cd! /var/www/fog/application/<Cr>
 
 cno $y syntax sync fromstart<Cr>
 
@@ -585,12 +584,12 @@ ino <C-X><C-T> <C-X><C-]>
 " Normal mode {{{
 
 " File operations {{{
-nn <silent><Leader>e :e 
+nn <silent><Leader>e :e
 nn <silent><Leader>k :clo<Cr>
 nn <silent><Leader>w :w<Cr>
 
-" Find/edit files in path 
-nn <M-S-F>	:fin 
+" Find/edit files in path
+nn <M-S-F>	:fin
 nn <C-T>	:e **/
 
 " }}}
@@ -763,7 +762,7 @@ let g:miniBufExplSplitBelow=0		" Put new window above/left of current window
 let g:miniBufExplSplitToEdge=1         	" Force the MiniBufExplorer window to the edge of the screen
 let g:miniBufExplMinSize=1             	" Minimum width of vertical MiniBufExplorer window.
 let g:miniBufExplMaxSize=32            	" Maximum width of vertical MiniBufExplorer window. 0 means fixed size.
-" let g:miniBufExplVSplit=16           	  " Enable and set width for vertical explorer windows 
+" let g:miniBufExplVSplit=16           	  " Enable and set width for vertical explorer windows
 let g:miniBufExplMinSize=1             	" Minimum size of explorer window
 let g:miniBufExplMaxSize=4             	" Maximum size of explorer window (0 means auto size)
 let g:miniBufExplorerMoreThanOne=0     	" Always open MiniBufExplorer window even if only one file is open.
@@ -773,7 +772,7 @@ let g:miniBufExplMapWindowNavArrows=1	" Map Control + arrow keys to window movem
 " let g:miniBufExplMapCTabSwitchBufs=1   " Map <C-Tab> and <C-S-Tab> to :bn and :bp
 " let g:miniBufExplMapCTabSwitchWindows=1 " Map <C-Tab> and <C-S-Tab> to next and prev window
 let g:miniBufExplUseSingleClick=1	" Single clicking switches to the buffer
-" NOTE: It is possible to customize the the highlighting for the tabs in 
+" NOTE: It is possible to customize the the highlighting for the tabs in
 "       the MBE by configuring the following highlighting groups:
 "
 "       MBEChanged        - CHANGED	    NOT VISIBLE
@@ -819,7 +818,7 @@ let g:selBufRestoreSearchString=1	" Save and restore search strings used inside 
 " " -- Taglist settings and mappings {{{
 " map <Leader>tl :Tlist<CR>
 " nnoremap <silent> <S-F8> :TlistToggle<CR>
-" 
+"
 " " }}}
 
 " Tagexplorer settings and mappings {{{
@@ -852,11 +851,11 @@ set mp="gmake"
 " Which scripting languages to highlight in Vim scripts
 let g:vimsyn_embed = "Pr"
 "   g:vimsyn_embed == 0   : don't embed any scripts
-"   ~= 'm' : mzScheme 
-"   ~= 'p' : Perl    
-"   ~= 'P' : Python 
-"   ~= 'r' : Ruby  
-"   ~= 't' : TCL  
+"   ~= 'm' : mzScheme
+"   ~= 'p' : Perl
+"   ~= 'P' : Python
+"   ~= 'r' : Ruby
+"   ~= 't' : TCL
 
 " }}}
 
@@ -889,7 +888,7 @@ let b:sql_type_override='psql'
 let php_sql_query = 1		    " SQL inside strings
 let php_htmlInStrings = 0   	    " HTML inside strings
 let php_baselib = 0	    	    " baselib functions
-let php_special_vars = 1    	    " superglobals 
+let php_special_vars = 1    	    " superglobals
 let php_special_functions = 1	    " functions with special behaviour e.g., unset(), extract()
 let php_alt_comparisons = 1	    " comparison operators in alternate color
 let php_alt_assignByReference = 1   " '=&' in alternate color.
@@ -919,7 +918,7 @@ let php_parent_error_open = 0	    " skip php end tag, if there exists an open ( 
 				    " Note: this option is now enabled permanently (unless
 				    " php_strict_blocks is disabled).
 let php_empty_construct_error = 0   " highlight ';' as an error if it comes immediately after
-				    " an if/else/while/for/foreach/switch statement 
+				    " an if/else/while/for/foreach/switch statement
 let php_show_semicolon_error = 0    " highlight certain cases when ';' is followed by an
 				    " operator such as '+'.
 let php_nested_functions = 0	    " to allow containing one function inside
@@ -932,19 +931,19 @@ let php_nested_functions = 0	    " to allow containing one function inside
 let php_large_file = 5000	    " If a PHP script has more lines than this limit, some
 				    " options are automatically turned off
 				    " Note: If you set this option to '0', then this feature
-				    " will be disabled; thus you can use: 
+				    " will be disabled; thus you can use:
 				    " :let b:php_large_file = 0 | setfiletype php
-				    " to reload the current file with the disabled syntax 
+				    " to reload the current file with the disabled syntax
 				    " options reactivated.
 let php_strict_blocks = 1	    " to match together all {} () and [] blocks correctly.
 let php_asp_tags = 0		    " highlight ASP-style short tags: <% %>
-let php_short_tags = 1		    " highlight <?...?> blocks as php. 
+let php_short_tags = 1		    " highlight <?...?> blocks as php.
 " let php_oldStyle = 1		    " for old colorstyle
 let php_folding = 3		    " 1: fold classes and functions
 				    " 2: fold all { } regions
 				    " 3: fold only functions
-let php_fold_arrays = 0		    " fold arrays 
-let php_fold_heredoc = 0	    " Fold heredoc blocks 
+let php_fold_arrays = 0		    " fold arrays
+let php_fold_heredoc = 0	    " Fold heredoc blocks
 let php_sync_method = -1	    " -1:  sync by search (default)
 				    " > 0: sync at least x lines backwards
 				    " 0:   sync from start
@@ -953,10 +952,10 @@ let php_sync_method = -1	    " -1:  sync by search (default)
 " Settings for indent/php.vim by John Wellesz 1.28 {{{
 let PHP_autoformatcomment = 1		" enable autoformating of comment by default, if set to 0, this script will
 					" let the 'formatoptions' setting intact.
-let PHP_default_indenting = 0		" # of sw (default is 0), # of sw will be added to the indent of each 
+let PHP_default_indenting = 0		" # of sw (default is 0), # of sw will be added to the indent of each
 					" line of PHP code.
 let PHP_removeCRwhenUnix = 0		" make the script automatically remove CR at end of lines (by default this
-					" option is unset), NOTE that you MUST remove CR when the fileformat is 
+					" option is unset), NOTE that you MUST remove CR when the fileformat is
 					" UNIX else the indentation won't be correct...
 let PHP_BracesAtCodeLevel = 0		" 1: indent the '{' and '}' at the same level than the code they contain.
 					" Example:
@@ -1027,7 +1026,7 @@ unl! c_space_errors
 let c_ansi_typedefs=1
 let c_ansi_constants=1
 let c_minlines=150
-" % sudo ctags -R -f ~/.vim/systags /usr/include/* /usr/local/include/* 
+" % sudo ctags -R -f ~/.vim/systags /usr/include/* /usr/local/include/*
 set tags+=~/.vim/systags
 " FIXME
 " }}}
@@ -1039,13 +1038,24 @@ let nasm_amd64_syntax=1
 " }}}
 
 " ChangeLog {{{
-let g:changelog_username="Tobias Hoffmann  <thermo@centraldogma.de"
+let g:changelog_username="Tobias Hoffmann  <th.geist@gmail.com>"
 
 " }}}
 
 " }}}
 
 " Misc. functions {{{
+
+" Trailing spaces {{{
+let g:ShowTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace = 0
+
+nnoremap <silent> <F12> :<C-u>call ShowTrailingWhitespace#Toggle(0)<Bar>echo (ShowTrailingWhitespace#IsSet() ? 'Show trailing whitespace' : 'Not showing trailing whitespace')<CR>
+set list listchars=trail:·
+
+nnoremap <S-F12> :<C-u>%DeleteTrailingWhitespace<CR>
+vnoremap <S-F12> :DeleteTrailingWhitespace<CR>
+" }}}
 
 " Eat the space after an expanded iabbrev {{{
 " Use like this: :ia <silent> if if ()<Left><C-R>=Eatspace()<CR>
@@ -1075,19 +1085,19 @@ endf
 let g:timestamplines=10	    " numbers of lines to scan for a timestamp
 
 let s:my_name		= "Tobias Hoffmann"
-let s:my_email     	= "th.geist@googlemail.com"
+let s:my_email     	= "th.geist@gmail.com"
 let s:my_signature 	= s:my_name . " <" . s:my_email . ">"
-let s:my_copyright 	= "Copyright (C) 2008 " . s:my_name . " <" . s:my_email . ">\nAll rights reserved."
+let s:my_copyright 	= "Copyright (C) %Y " . s:my_name . " <" . s:my_email . ">\nAll rights reserved."
 let s:my_timestamp 	= "%d %b %Y %X"
 let s:my_modified  	= "Last Change: "
 let s:my_created   	= "Created:     "
 
 fu! s:copyright()
-    retu s:my_copyright
+    retu strftime(s:my_copyright)
 endf
 
 fu! s:modified_timestamp()
-    retu s:my_modified . strftime(s:my_timestamp) . " " . s:my_signature 
+    retu s:my_modified . strftime(s:my_timestamp) . " " . s:my_signature
 endf
 
 fu! s:created_timestamp()
@@ -1235,11 +1245,10 @@ if has("gui_running")
     set nonu
     "colorschem panda
     "colorscheme rubyblue
-    colorscheme molokai
+    "colorscheme molokai
+    colorscheme robokai
 else
     colorscheme 256_wombat
 endif
 
-" Hell, yeah!
-source ~/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
 
