@@ -1,7 +1,7 @@
 " vim: set sw=4 ts=8 sts=4 noet fen fdm=marker fdl=1 fdls=0 tw=120:
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@gmail.com>
-" Last Change: 14 May 2013 17:47:12 Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 14 May 2013 18:08:21 Tobias Hoffmann <th.geist@gmail.com>
 "
 " Copyright (C) 2013 Tobias Hoffmann <th.geist@gmail.com>
 " All rights reserved.
@@ -199,12 +199,13 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-surround'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/bash-support.vim'
 Bundle 'vim-scripts/project.tar.gz'
 Bundle 'vim-scripts/molokai'
 Bundle 'vim-scripts/robokai'
 Bundle 'vim-scripts/DevEiate-theme'
-
+Bundle 'vim-scripts/syntaxconkyrc.vim'
 Bundle 'Align'
 Bundle 'DrawIt'
 Bundle 'ShowTrailingWhitespace'
@@ -497,7 +498,7 @@ set fdo="block,hor,mark,percent,search,tag,undo"
 " Text wrapping/display/scrolling {{{
 set wrap		    " Display long lines wrapped TODO: Make wrap toggle mapping
 set sidescroll=5            " Minimum number of columns to scroll horizontally when wrap is off
-set listchars+=precedes:<,extends:>,trail:-
+set list listchars=precedes:«,extends:»,trail:·    " Special characters highlighting
 			    " Strings to use in list mode
 set linebreak		    " Wrap long lines at a character in 'breakat' rather than the last character
 			    " that fits on screen.
@@ -538,6 +539,14 @@ nn <silent><Leader>cu :se cuc  <CR>:se cul  <CR>
 
 " Command line {{{
 
+" Homedir-relative editing {{{
+" Make %% an alias for home
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+" }}}
 cno $$ e ../**/
 "  __     ___             _       _   _  ___ _____
 "  \ \   / (_)_ __ ___   (_)___  | | | |/ _ \_   _|
@@ -550,22 +559,12 @@ cno $$ e ../**/
 "          ___) || | | |_| |  _| |  _| |_|_|
 "         |____/ |_|  \___/|_|   |_|   (_|_)
 
-cno $r sp $MYVIMRC<Cr>
-cno $g sp $MYGVIMRC<Cr>
+cno $r e $MYVIMRC<Cr>
+cno $g e $MYGVIMRC<Cr>
 cno $v e $VIM/
 cno $s e $VIMRUNTIME/
 
 cno $h e ~/
-cno $d e ~/Desktop/
-
-cno $p sp ~/.plan<Cr>
-cno $t sp ~/.todo<Cr>
-
-" This should probably go into a :Project script
-cno $w cd! /var/www/<Cr>
-cno $f cd! /var/www/fog/<Cr>
-cno $a cd! /var/www/fog/application/<Cr>
-
 cno $y syntax sync fromstart<Cr>
 
 " Use w!! to sudo write after opening a file without sudo rights
@@ -1047,11 +1046,12 @@ let g:changelog_username="Tobias Hoffmann  <th.geist@gmail.com>"
 " Misc. functions {{{
 
 " Trailing spaces {{{
+
+" See also "listchars"
 let g:ShowTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace = 0
 
 nnoremap <silent> <F12> :<C-u>call ShowTrailingWhitespace#Toggle(0)<Bar>echo (ShowTrailingWhitespace#IsSet() ? 'Show trailing whitespace' : 'Not showing trailing whitespace')<CR>
-set list listchars=trail:·
 
 nnoremap <S-F12> :<C-u>%DeleteTrailingWhitespace<CR>
 vnoremap <S-F12> :DeleteTrailingWhitespace<CR>
@@ -1179,6 +1179,10 @@ let g:bash_is_sh=1
 
 " Filetype autocmds {{{
 
+" File type {{{
+au BufNewFile,BufRead *conkyrc set filetype=conkyrc
+" }}}
+
 " For Vim Help files:
 "au BufNewFile,BufRead,BufEnter *vim*/doc/*.txt let <buffer> s:my_timestamp="%Y %b %d"
 
@@ -1251,4 +1255,6 @@ else
     colorscheme 256_wombat
 endif
 
+" Hell, yeah!
+source ~/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
 
