@@ -1,7 +1,7 @@
-" Last Change: 14 May 2013 18:38:50 Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 16 May 2013 15:16:20 Tobias Hoffmann <th.geist@gmail.com>
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@gmail.com>
-" Last Change: 14 May 2013 18:38:50 Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 16 May 2013 15:16:20 Tobias Hoffmann <th.geist@gmail.com>
 "
 " Copyright (C) 2013 Tobias Hoffmann <th.geist@gmail.com>
 " All rights reserved.
@@ -221,7 +221,7 @@ filetype plugin indent on
 
 " Powerline {{{
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-source ~/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
+"source ~/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
 " }}}
 
 " Basic power config {{{
@@ -590,6 +590,10 @@ ino <C-X><C-T> <C-X><C-]>
 " }}}
 
 " Normal mode {{{
+
+" Disable ex mode {{{
+nnoremap Q <nop>
+" }}}
 
 " File operations {{{
 nn <silent><Leader>e :e
