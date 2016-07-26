@@ -1,7 +1,7 @@
-" Last Change: 16 May 2013 15:16:20 Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 26 Jul 2016 04:03:26 PM Tobias Hoffmann <th.geist@gmail.com>
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@gmail.com>
-" Last Change: 16 May 2013 15:16:20 Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 26 Jul 2016 04:03:26 PM Tobias Hoffmann <th.geist@gmail.com>
 "
 " Copyright (C) 2013 Tobias Hoffmann <th.geist@gmail.com>
 " All rights reserved.
@@ -185,33 +185,34 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " let Vundle manage Vundle (required)
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 
 " Bundles {{{
-Bundle 'Shougo/neocomplcache'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-surround'
-Bundle 'tsaleh/vim-matchit'
-Bundle 'Lokaltog/powerline'
-Bundle 'vim-scripts/bash-support.vim'
-Bundle 'vim-scripts/project.tar.gz'
-Bundle 'vim-scripts/molokai'
-Bundle 'vim-scripts/robokai'
-Bundle 'vim-scripts/DevEiate-theme'
-Bundle 'vim-scripts/syntaxconkyrc.vim'
-Bundle 'Align'
-Bundle 'DrawIt'
-Bundle 'ShowTrailingWhitespace'
-Bundle 'DeleteTrailingWhitespace'
-Bundle 'CountJump'
+Plugin 'Shougo/neocomplcache'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'msanders/snipmate.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'tsaleh/vim-matchit'
+Plugin 'Lokaltog/powerline'
+Plugin 'vim-scripts/bash-support.vim'
+Plugin 'vim-scripts/project.tar.gz'
+Plugin 'vim-scripts/molokai'
+Plugin 'vim-scripts/robokai'
+Plugin 'vim-scripts/DevEiate-theme'
+Plugin 'vim-scripts/syntaxconkyrc.vim'
+Plugin 'Align'
+Plugin 'DrawIt'
+Plugin 'ShowTrailingWhitespace'
+Plugin 'DeleteTrailingWhitespace'
+Plugin 'CountJump'
 
+call vundle#end()
 " [FIXME] ln -s ~/.vim/bundle/bash-support.vim/bash-support ~/.vim/ "
 " [C extension] Bundle 'git://git.wincent.com/command-t.git'
 " }}}
