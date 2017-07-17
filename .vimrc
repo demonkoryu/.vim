@@ -1,7 +1,7 @@
-" Last Change: 26 Jul 2016 04:03:26 PM Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 17 Jul 2017 18:56:31 Tobias Hoffmann <th.geist@gmail.com>
 "
 " Created:     08 May 2007 21:45:34 Tobias Hoffmann <th.geist@gmail.com>
-" Last Change: 26 Jul 2016 04:03:26 PM Tobias Hoffmann <th.geist@gmail.com>
+" Last Change: 17 Jul 2017 18:56:31 Tobias Hoffmann <th.geist@gmail.com>
 "
 " Copyright (C) 2013 Tobias Hoffmann <th.geist@gmail.com>
 " All rights reserved.
@@ -181,43 +181,50 @@
 " set runtimepath=
 " }}}
 
-" Vundle {{{
+" dein (formerly NeoBundle formerly Vundle) {{{
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" let Vundle manage Vundle (required)
-Bundle 'VundleVim/Vundle.vim'
+set rtp+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
+if dein#load_state(expand('~/.vim/bundle'))
+    call dein#begin(expand('~/.vim/bundle'))
+    call dein#add('~/.vim/bundle/repos/github.com/Shougo/dein.vim')
 
 " Bundles {{{
-Plugin 'Shougo/neocomplcache'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'msanders/snipmate.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-surround'
-Plugin 'tsaleh/vim-matchit'
-Plugin 'Lokaltog/powerline'
-Plugin 'vim-scripts/bash-support.vim'
-Plugin 'vim-scripts/project.tar.gz'
-Plugin 'vim-scripts/molokai'
-Plugin 'vim-scripts/robokai'
-Plugin 'vim-scripts/DevEiate-theme'
-Plugin 'vim-scripts/syntaxconkyrc.vim'
-Plugin 'Align'
-Plugin 'DrawIt'
-Plugin 'ShowTrailingWhitespace'
-Plugin 'DeleteTrailingWhitespace'
-Plugin 'CountJump'
+    call dein#add('Shougo/neocomplcache')
+    call dein#add('fholgado/minibufexpl.vim')
+    call dein#add('msanders/snipmate.vim')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('tpope/vim-markdown')
+    call dein#add('tpope/vim-surround')
+    call dein#add('Lokaltog/powerline')
+    call dein#add('vim-scripts/matchit.zip')
+    call dein#add('vim-scripts/bash-support.vim')
+    call dein#add('vim-scripts/project.tar.gz')
+    call dein#add('vim-scripts/molokai')
+    call dein#add('vim-scripts/robokai')
+    call dein#add('vim-scripts/DevEiate-theme')
+    call dein#add('vim-scripts/syntaxconkyrc.vim')
+    call dein#add('vim-scripts/Align')
+    call dein#add('vim-scripts/DrawIt')
+    call dein#add('vim-scripts/ShowTrailingWhitespace')
+    call dein#add('vim-scripts/DeleteTrailingWhitespace')
+    call dein#add('vim-scripts/CountJump')
 
-call vundle#end()
+    call dein#end()
+    call dein#save_state()
+endif
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
 " [FIXME] ln -s ~/.vim/bundle/bash-support.vim/bash-support ~/.vim/ "
 " [C extension] Bundle 'git://git.wincent.com/command-t.git'
 " }}}
 
 filetype plugin indent on
+syntax enable
 " }}}
 
 " Powerline {{{
